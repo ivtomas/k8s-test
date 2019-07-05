@@ -4,7 +4,7 @@ metadata:
   name: k8s-test
   namespace: default
   labels: 
-      name: k8s-test
+      app: k8s-test
       keel.sh/policy: major
       keel.sh/triggerr: poll
   annotations:
@@ -19,8 +19,7 @@ spec:
     spec:
       containers:                    
         - image: pristtlt/k8s-test:0.0.1
-          imagePullPolicy: Always 
-          name: wd
+          name: k8s-test 
           ports:
             - containerPort: 80
 
