@@ -10,6 +10,7 @@ install:
 
 before_script:
   - env | sort
+  - cd "${VERSION}/${VARIANT}"
   - slash='/'; image="${DOCKER_REPO}:${VERSION}-${VARIANT//$slash/-}"
 
 script:
@@ -21,3 +22,9 @@ script:
     )
 after_script:
   - docker images
+
+deploy:
+- provider: script
+  script: ->
+   docker login --username ${DOCKER_USER} --password ${DOCKER_PASSWORD}
+   && docker push $image
