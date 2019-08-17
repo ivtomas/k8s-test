@@ -2,8 +2,7 @@ language: bash
 services: docker
 
 env:
-  - VERSION=7.2 VARIANT=stretch/fpm
-  - VERSION=7.1 VARIANT=stretch/fpm
+  - VERSION=7.2.19 VARIANT=stretch/fpm
 
 install:
   - echo "skip"
