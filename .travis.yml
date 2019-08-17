@@ -25,6 +25,6 @@ after_script:
 
 deploy:
 - provider: script
-  script: ->
+  script: >- 
    docker login --username ${DOCKER_USER} --password ${DOCKER_PASSWORD}
    && docker push $image
