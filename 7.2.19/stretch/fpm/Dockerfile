@@ -1,7 +1,8 @@
 FROM debian:stretch-slim AS build
 
 
-ENV PHP_URL="https://www.php.net/get/php-7.2.19.tar.xz/from/this/mirror"
+ENV PHP_VERSION="7.2.19"
+ENV PHP_URL="https://www.php.net/get/php-${PHP_VERSION}.tar.xz/from/this/mirror"
 ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2"
 ENV PHP_CPPFLAGS="$PHP_CFLAGS"
 ENV PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
