@@ -10,7 +10,6 @@ install:
 
 before_script:
   - env | sort
-  - cd "$VERSION/$VARIANT"
   - slash='/'; image="php:${VERSION}-${VARIANT//$slash/-}"
 
 script:
