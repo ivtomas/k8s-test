@@ -10,7 +10,7 @@ install:
 
 before_script:
   - env | sort
-  - slash='/'; image="php:${VERSION}-${VARIANT//$slash/-}"
+  - slash='/'; image="${DOCKER_REPO}:${VERSION}-${VARIANT//$slash/-}"
 
 script:
   - |
