@@ -294,7 +294,7 @@ RUN apt-get update \
    && useradd -M www -s /usr/sbin/nologin \
 #    && mkdir -p /var/web/www \
 #    && chown www:www /var/web/www \
-   && chmod +x /usr/local/bin/docker-entrypoint.sh \
+   && chmod +x /usr/local/bin/docker-entrypoint.sh 
 #    && ln -sf /dev/stdout /usr/local/openresty/nginx/logs/access.log \
 #    && ln -sf /dev/stderr /usr/local/openresty${RESTY_DEB_FLAVOR}/nginx/logs/error.log
    
