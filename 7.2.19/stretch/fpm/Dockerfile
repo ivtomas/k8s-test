@@ -259,10 +259,10 @@ COPY --from=build /usr/local/sbin /usr/local/sbin
 COPY --from=build /usr/local/bin /usr/local/bin
 COPY --from=build /usr/local/etc /usr/local/etc
 COPY --from=build /usr/local/lib /usr/local/lib
-COPY --from=build /usr/local/openresty /usr/local/openresty
+# COPY --from=build /usr/local/openresty /usr/local/openresty
 
-COPY ./conf/nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
-COPY ./conf/default.conf /usr/local/openresty/nginx/conf/vhosts/default.conf
+# COPY ./conf/nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
+# COPY ./conf/default.conf /usr/local/openresty/nginx/conf/vhosts/default.conf
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 COPY base/. /base
 
@@ -291,15 +291,15 @@ RUN apt-get update \
    && ln -s /usr/lib/x86_64-linux-gnu/libargon2.so /usr/lib/x86_64-linux-gnu/libargon2.so.1 \
    && rm -rf /var/lib/apt/lists/* \
    && useradd -M www -s /usr/sbin/nologin \
-   && mkdir -p /var/web/www \
-   && chown www:www /var/web/www \
+#    && mkdir -p /var/web/www \
+#    && chown www:www /var/web/www \
    && chmod +x /usr/local/bin/docker-entrypoint.sh \
-   && ln -sf /dev/stdout /usr/local/openresty/nginx/logs/access.log \
-   && ln -sf /dev/stderr /usr/local/openresty${RESTY_DEB_FLAVOR}/nginx/logs/error.log
+#    && ln -sf /dev/stdout /usr/local/openresty/nginx/logs/access.log \
+#    && ln -sf /dev/stderr /usr/local/openresty${RESTY_DEB_FLAVOR}/nginx/logs/error.log
    
 ENV PATH="$PATH:/usr/local/openresty/luajit/bin:/usr/local/openresty/nginx/sbin:/usr/local/openresty/bin"
 ENV PARAMS ""
-WORKDIR /var/web/www
+WORKDIR /srv
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
